@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>cxmbo.dev | Projects</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Showcase of cxmbo's top projects in Minecraft optimization, web development, and custom launchers." />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Primary navigation">
+    <div class="container navbar-container">
+      <a href="index.html" class="logo" aria-label="cxmbo.dev homepage" tabindex="0">cxmbo.dev</a>
+      <button
+        class="nav-toggle"
+        aria-controls="nav-menu"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+        id="navToggle"
+      >
+        <span class="hamburger"></span>
+      </button>
+      <ul id="nav-menu" class="nav-links" role="menubar" tabindex="-1">
+        <li role="none"><a role="menuitem" href="index.html" tabindex="-1">Home</a></li>
+        <li role="none"><a role="menuitem" href="about.html" tabindex="-1">About</a></li>
+        <li role="none"><a role="menuitem" href="skills.html" tabindex="-1">Skills</a></li>
+        <li role="none"><a role="menuitem" href="projects.html" tabindex="0" aria-current="page">Projects</a></li>
+        <li role="none"><a role="menuitem" href="support.html" tabindex="-1">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Projects Section -->
+  <main>
+    <section class="section projects" aria-labelledby="projects-title" tabindex="0">
+      <div class="container">
+        <h2 id="projects-title">Selected Projects</h2>
+        <div class="projects-grid" role="list" aria-label="List of projects">
+
+          <!-- Project Card Template -->
+          <article class="project-card" role="listitem" tabindex="0" aria-labelledby="project-cxmply-title" aria-describedby="project-cxmply-desc">
+            <h3 id="project-cxmply-title">Cxmply Optimizer</h3>
+            <p id="project-cxmply-desc">
+              A high-powered Minecraft FPS booster featuring 100+ system tweaks, registry edits, and process optimizations to deliver buttery-smooth gameplay.
+            </p>
+            <button class="btn btn-mini" aria-haspopup="dialog" aria-controls="modal-cxmply" aria-expanded="false" data-modal-target="modal-cxmply">Learn More</button>
+          </article>
+
+          <article class="project-card" role="listitem" tabindex="0" aria-labelledby="project-mythicmc-title" aria-describedby="project-mythicmc-desc">
+            <h3 id="project-mythicmc-title">MythicMC Website</h3>
+            <p id="project-mythicmc-desc">
+              A premium, gold-on-black themed custom-built Minecraft server website designed to showcase community events, leaderboards, and exclusive content.
+            </p>
+            <button class="btn btn-mini" aria-haspopup="dialog" aria-controls="modal-mythicmc" aria-expanded="false" data-modal-target="modal-mythicmc">Preview</button>
+          </article>
+
+          <article class="project-card" role="listitem" tabindex="0" aria-labelledby="project-portfolio-title" aria-describedby="project-portfolio-desc">
+            <h3 id="project-portfolio-title">cxmbo.dev Portfolio</h3>
+            <p id="project-portfolio-desc">
+              This very site — a showcase of skills, projects, and ambition, built from the ground up to represent a next-generation developer brand.
+            </p>
+            <button class="btn btn-mini" aria-haspopup="dialog" aria-controls="modal-portfolio" aria-expanded="false" data-modal-target="modal-portfolio">Explore</button>
+          </article>
+
+          <article class="project-card" role="listitem" tabindex="0" aria-labelledby="project-launcher-title" aria-describedby="project-launcher-desc">
+            <h3 id="project-launcher-title">Minecraft Launcher Customizer</h3>
+            <p id="project-launcher-desc">
+              A fully customizable Minecraft launcher enabling seamless modpacks, profiles, and performance tweaks tailored to user preferences.
+            </p>
+            <button class="btn btn-mini" aria-haspopup="dialog" aria-controls="modal-launcher" aria-expanded="false" data-modal-target="modal-launcher">Discover</button>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Modals -->
+  <div class="modal-overlay" id="modal-cxmply" role="dialog" aria-modal="true" aria-labelledby="modal-cxmply-title" tabindex="-1" hidden>
+    <div class="modal-content">
+      <h3 id="modal-cxmply-title">Cxmply Optimizer</h3>
+      <p>
+        The ultimate Minecraft optimization tool. It includes over 100 system-level tweaks such as registry edits, process priority adjustments, and FPS boosting techniques. Designed to reduce lag spikes and maximize smooth gameplay.
+      </p>
+      <ul>
+        <li>100+ System tweaks & optimizations</li>
+        <li>Registry editing automation</li>
+        <li>Process & service management</li>
+        <li>Configurable presets & profiles</li>
+        <li>Lightweight & fast with zero bloat</li>
+      </ul>
+      <button class="btn btn-close" aria-label="Close Cxmply Optimizer details" data-modal-close>Close</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-mythicmc" role="dialog" aria-modal="true" aria-labelledby="modal-mythicmc-title" tabindex="-1" hidden>
+    <div class="modal-content">
+      <h3 id="modal-mythicmc-title">MythicMC Website</h3>
+      <p>
+        Custom-built Minecraft server site with gold-on-black premium styling. Features live event listings, leaderboards, player stats, and exclusive member content.
+      </p>
+      <ul>
+        <li>Responsive & accessible design</li>
+        <li>Dynamic leaderboards & stats</li>
+        <li>Event calendar & announcements</li>
+        <li>Custom CMS integration</li>
+      </ul>
+      <button class="btn btn-close" aria-label="Close MythicMC Website details" data-modal-close>Close</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-portfolio" role="dialog" aria-modal="true" aria-labelledby="modal-portfolio-title" tabindex="-1" hidden>
+    <div class="modal-content">
+      <h3 id="modal-portfolio-title">cxmbo.dev Portfolio</h3>
+      <p>
+        The official portfolio site showcasing coding skills, projects, and personal branding. Built with modern tools and a sleek black & gold theme.
+      </p>
+      <ul>
+        <li>Responsive multi-page layout</li>
+        <li>Accessible navigation & ARIA</li>
+        <li>Custom animations & interactions</li>
+        <li>SEO optimized</li>
+      </ul>
+      <button class="btn btn-close" aria-label="Close cxmbo.dev Portfolio details" data-modal-close>Close</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-launcher" role="dialog" aria-modal="true" aria-labelledby="modal-launcher-title" tabindex="-1" hidden>
+    <div class="modal-content">
+      <h3 id="modal-launcher-title">Minecraft Launcher Customizer</h3>
+      <p>
+        Custom Minecraft launcher with modpack management, profile saving, and advanced performance tweaks — designed for power users who want full control.
+      </p>
+      <ul>
+        <li>Modpack and profile switching</li>
+        <li>Performance profiling & tweaks</li>
+        <li>Cross-platform compatibility</li>
+        <li>Lightweight & customizable UI</li>
+      </ul>
+      <button class="btn btn-close" aria-label="Close Minecraft Launcher Customizer details" data-modal-close>Close</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-container">
+      <p>© 2025 cxmbo.dev — Crafted with passion and precision.</p>
+      <nav class="socials" aria-label="Social media links">
+        <a href="https://youtube.com/@CxmboFight" target="_blank" rel="noopener noreferrer" tabindex="0">YouTube</a>
+        <a href="https://discord.gg/rKKNJZ6Sb6" target="_blank" rel="noopener noreferrer" tabindex="0">Discord</a>
+        <a href="mailto:CxmboFight.business@gmail.com" tabindex="0">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const modalTriggers = document.querySelectorAll('[data-modal-target]');
+      const modals = document.querySelectorAll('.modal-overlay');
+      const body = document.body;
+      let activeModal = null;
+
+      function trapFocus(modal) {
+        const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+        const focusableElements = modal.querySelectorAll(focusableSelectors);
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        function handleFocus(e) {
+          if (e.key === 'Tab') {
+            if (e.shiftKey) {
+              if (document.activeElement === firstFocusable) {
+                e.preventDefault();
+                lastFocusable.focus();
+              }
+            } else {
+              if (document.activeElement === lastFocusable) {
+                e.preventDefault();
+                firstFocusable.focus();
+              }
+            }
+          }
+          if (e.key === 'Escape') {
+            closeModal();
+          }
+        }
+
+        modal.addEventListener('keydown', handleFocus);
+
+        return () => {
+          modal.removeEventListener('keydown', handleFocus);
+        };
+      }
+
+      function openModal(modal) {
+        modal.hidden = false;
+        body.style.overflow = 'hidden';
+        modal.setAttribute('aria-hidden', 'false');
+        const closeFocusTrap = trapFocus(modal);
+        activeModal = { modal, closeFocusTrap };
+
+        // Focus first focusable element (usually close button)
+        const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        focusable?.focus();
+
+        // Update aria-expanded on trigger button
+        document.querySelector(`[data-modal-target="#${modal.id}"]`)?.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeModal() {
+        if (!activeModal) return;
+        activeModal.modal.hidden = true;
+        body.style.overflow = '';
+        activeModal.modal.setAttribute('aria-hidden', 'true');
+        activeModal.closeFocusTrap();
+
+        // Update aria-expanded on trigger button
+        document.querySelector(`[data-modal-target="#${activeModal.modal.id}"]`)?.setAttribute('aria-expanded', 'false');
+
+        // Return focus to the button that opened the modal
+        document.querySelector(`[data-modal-target="#${activeModal.modal.id}"]`)?.focus();
+
+        activeModal = null;
+      }
+
+      modalTriggers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const modalId = btn.getAttribute('data-modal-target');
+          if (!modalId) return;
+          const modal = document.getElementById(modalId.replace(/^#/, ''));
+          if (!modal) return;
+          openModal(modal);
+        });
+      });
+
+      document.querySelectorAll('[data-modal-close]').forEach((btn) => {
+        btn.addEventListener('click', closeModal);
+      });
+
+      modals.forEach((modal) => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
