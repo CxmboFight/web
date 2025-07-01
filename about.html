@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>cxmbo.dev | About Me</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Meta Description -->
+  <meta name="description" content="About cxmbo — young prodigy coder crafting sleek designs and powerful tools." />
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    /* === VARIABLES & RESET === */
+    :root {
+      --gold: #f2c94c;
+      --gold-dark: #c1a92d;
+      --black: #000000;
+      --black-light: #121212;
+      --white: #fefefe;
+      --font-primary: 'Space Grotesk', sans-serif;
+
+      --transition-fast: 0.25s ease;
+      --transition-smooth: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+      --max-width: 1200px;
+      --shadow-glow: 0 0 8px var(--gold);
+      --shadow-glow-strong: 0 0 15px var(--gold);
+
+      --z-overlay: 9999;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+      background: var(--black);
+      color: var(--gold);
+      font-family: var(--font-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+      background: var(--black);
+    }
+
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* === NAVBAR === */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: var(--black-light);
+      border-bottom: 2px solid var(--gold);
+      box-shadow: none;
+      padding: 1rem 2rem;
+      z-index: var(--z-overlay);
+      user-select: none;
+      transition:
+        background-color var(--transition-smooth),
+        box-shadow var(--transition-smooth),
+        backdrop-filter var(--transition-smooth);
+      display: flex;
+      justify-content: center;
+      backdrop-filter: saturate(180%) blur(10px);
+    }
+
+    .navbar.scrolled {
+      background: rgba(18, 18, 18, 0.85);
+      box-shadow: 0 4px 15px rgba(242, 201, 76, 0.4);
+      backdrop-filter: saturate(200%) blur(15px);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 2rem;
+      letter-spacing: 0.15rem;
+      color: var(--gold);
+      text-decoration: none;
+      user-select: text;
+      transition: color var(--transition-fast);
+    }
+
+    .logo:hover,
+    .logo:focus {
+      color: var(--gold-dark);
+      outline: none;
+      text-shadow: var(--shadow-glow);
+    }
+
+    /* NAV LINKS */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links li a {
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      padding: 0.5rem 0;
+      position: relative;
+      user-select: none;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a:focus {
+      color: var(--white);
+      outline: none;
+      text-shadow: var(--shadow-glow-strong);
+    }
+
+    .nav-links li a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: var(--gold);
+      transition: width var(--transition-fast);
+      border-radius: 2px;
+    }
+
+    .nav-links li a:hover::after,
+    .nav-links li a:focus::after {
+      width: 100%;
+    }
+
+    /* HAMBURGER */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      position: relative;
+      z-index: var(--z-overlay);
+      user-select: none;
+      transition: filter 0.3s ease;
+    }
+
+    .nav-toggle:focus {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+      filter: drop-shadow(0 0 4px var(--gold));
+    }
+
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 3px;
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      position: absolute;
+      left: 0;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    .nav-toggle[aria-expanded="true"] .hamburger {
+      background: transparent;
+    }
+
+    .nav-toggle[aria-expanded="true"] .hamburger::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .nav-toggle[aria-expanded="true"] .hamburger::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    /* MOBILE MENU */
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        background: var(--black-light);
+        width: 260px;
+        height: calc(100vh - 70px);
+        flex-direction: column;
+        gap: 2.4rem;
+        padding: 2rem 1.8rem;
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -2px 0 20px rgba(242, 201, 76, 0.5);
+        border-left: 2px solid var(--gold);
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        overflow-y: auto;
+        z-index: var(--z-overlay);
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+    }
+
+    /* === ABOUT SECTION === */
+    main {
+      flex-grow: 1;
+      background: linear-gradient(135deg, #0a0a0a, #1f1a00);
+      color: var(--gold);
+      user-select: text;
+      padding: 6rem 0 8rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    h2#about-title {
+      font-weight: 900;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      letter-spacing: 0.1rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px var(--gold);
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0.8rem auto 2rem;
+      line-height: 1.7;
+      color: #d9c84ddd;
+      user-select: text;
+      text-align: center;
+    }
+
+    p strong {
+      color: var(--gold);
+      text-shadow: 0 0 8px var(--gold);
+    }
+
+    /* Fade in animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* === FOOTER === */
+    .footer {
+      background: var(--black-light);
+      border-top: 2px solid var(--gold);
+      padding: 1.5rem 2rem;
+      color: var(--gold);
+      text-align: center;
+      font-weight: 500;
+      font-size: 1rem;
+      box-shadow: inset 0 2px 12px #f2c94c11;
+      user-select: none;
+    }
+
+    .footer-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      text-decoration: none;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 6px;
+    }
+
+    .socials a:hover,
+    .socials a:focus {
+      color: var(--white);
+      text-shadow: 0 0 12px var(--gold);
+      outline: none;
+    }
+
+    /* FOCUS OUTLINES FOR ACCESSIBILITY */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Primary navigation">
+    <div class="container navbar-container">
+      <a href="index.html" class="logo" aria-label="cxmbo.dev homepage" tabindex="0">cxmbo.dev</a>
+      <button
+        class="nav-toggle"
+        aria-controls="nav-menu"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+        id="navToggle"
+      >
+        <span class="hamburger"></span>
+      </button>
+      <ul id="nav-menu" class="nav-links" role="menubar" tabindex="-1">
+        <li role="none"><a role="menuitem" href="index.html" tabindex="-1">Home</a></li>
+        <li role="none"><a role="menuitem" href="about.html" tabindex="0" aria-current="page">About</a></li>
+        <li role="none"><a role="menuitem" href="skills.html" tabindex="-1">Skills</a></li>
+        <li role="none"><a role="menuitem" href="projects.html" tabindex="-1">Projects</a></li>
+        <li role="none"><a role="menuitem" href="support.html" tabindex="-1">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <main>
+    <section class="section about" aria-labelledby="about-title" tabindex="0">
+      <div class="container">
+        <h2 id="about-title">About Me</h2>
+        <p>
+          I’m <strong>cxmbo</strong>, a prodigy coder with relentless ambition and a passion for optimizing performance,
+          creating sleek designs, and building innovative digital experiences.<br />
+          From system-level Minecraft optimization tools to dynamic web applications and beyond, I craft with precision,
+          efficiency, and creativity.
+        </p>
+        <p>
+          At 13 years old, I’m already shaping the future of coding — driven by the belief that technology is a force
+          for unstoppable growth and transformation.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-container">
+      <p>© 2025 cxmbo.dev — Crafted with passion and precision.</p>
+      <nav class="socials" aria-label="Social media links">
+        <a href="https://youtube.com/@CxmboFight" target="_blank" rel="noopener noreferrer" tabindex="0">YouTube</a>
+        <a href="https://discord.gg/rKKNJZ6Sb6" target="_blank" rel="noopener noreferrer" tabindex="0">Discord</a>
+        <a href="mailto:CxmboFight.business@gmail.com" tabindex="0">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // DEBOUNCE helper to reduce scroll event calls
+    function debounce(func, wait = 15, immediate = true) {
+      let timeout;
+      return function () {
+        const context = this,
+          args = arguments;
+        const later = function () {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    }
+
+    // Scroll handler to add/remove navbar shadow & blur on scroll
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      const handleScroll = debounce(() => {
+        if (window.scrollY > 40) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+      window.addEventListener('scroll', handleScroll);
+    }
+
+    // Accessible Mobile Nav Toggle
+    (() => {
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('nav-menu');
+      const focusableMenuItems = navMenu.querySelectorAll('a');
+
+      function openMenu() {
+        navMenu.classList.add('active');
+        navToggle.setAttribute('aria-expanded', 'true');
+        navMenu.setAttribute('tabindex', '0');
+        focusableMenuItems[0]?.focus();
+      }
+
+      function closeMenu() {
+        navMenu.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.setAttribute('tabindex', '-1');
+        navToggle.focus();
+      }
+
+      navToggle.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (
+          navMenu.classList.contains('active') &&
+          !navMenu.contains(e.target) &&
+          e.target !== navToggle
+        ) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+          closeMenu();
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
